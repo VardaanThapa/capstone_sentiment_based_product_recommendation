@@ -64,7 +64,7 @@ Try out the deployed app at [https://iiitb-capstone-sbprs-d98acacaf128.herokuapp
 - spacy (ver 1.4.0)
 
 ## Contact
-Created by [@rohit-agg](https://github.com/rohit-agg) - feel free to contact me!
+Created by [@VardaanThapa](https://github.com/VardaanThapa) - feel free to contact me!
 
 ## License
 This project is open source and available under the [MIT License](LICENSE.md)
