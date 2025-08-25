@@ -47,7 +47,9 @@ Following is the step-by-step approach followed to solve the given problem state
 - Open the app on browser by running `heroku open`
 - Check the logs to see activity by running `heroku logs --tail`
 
-Try out the deployed app at [https://iiitb-capstone-sbprs-d98acacaf128.herokuapp.com/](https://iiitb-capstone-sbprs-d98acacaf128.herokuapp.com/)
+Deployed app : https://capstone-recommendation-engine-092a3b5549a1.herokuapp.com/
+
+Github link : https://github.com/VardaanThapa/capstone_sentiment_based_product_recommendation
 
 ## Technologies Used
 - python (ver 3.12.7)

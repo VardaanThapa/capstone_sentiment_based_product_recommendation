@@ -22,7 +22,7 @@ def home():
                 top_products = model.top_5_products(recommended_products)
                 print("Final 5 fine-tuned recommended products = {}".format(top_products))
 
-                # ✅ Render results.html instead of index.html
+                # Render results.html instead of index.html
                 return render_template(
                     'results.html',
                     username=username,
