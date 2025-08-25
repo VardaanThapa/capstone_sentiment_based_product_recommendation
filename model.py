@@ -69,7 +69,7 @@ class Model:
     X_tfidf = self.tfidf_vectorizer.transform(products["review_processed"])
 
     # sentiment prediction
-    products['predicted_sentiment'] = self.final_xgb_model.predict(X_tfidf)
+    products['predicted_sentiment'] = self.model.predict(X_tfidf)
     
     total_product = products.groupby(['product']).agg('count')
     recommended_df = products.groupby(['product','predicted_sentiment']).agg('count')
