@@ -54,7 +54,7 @@ class Model:
 
     product_list = self.recommendation.loc[username].sort_values(ascending=False)[0:20]
     print("Top 20 recommended_products for {}".format(username))
-    display(product_list.index)
+    print(product_list.index)
     print()
     products = self.dataset[self.dataset["product"].isin(product_list.index.tolist())]
     products = products[['product', 'reviews_text']]
