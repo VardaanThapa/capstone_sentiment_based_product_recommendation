@@ -1,8 +1,3 @@
-<!-- 
-    This is the HTML and CSS for the Flask application's home page (index.html).
-    It contains the form to ask the user for their username.
--->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,15 +26,14 @@
             max-width: 600px;
             width: 100%;
             text-align: center;
+            position: relative;
         }
         
-        /* Heading styles */
         h1 {
             color: #2c3e50;
             margin-bottom: 20px;
         }
 
-        /* Form and input styles */
         .form-group {
             margin-bottom: 20px;
         }
@@ -72,19 +66,59 @@
         button:hover {
             background-color: #2980b9;
         }
+
+        /* Error message styling */
+        .error {
+            color: red;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        /* Loader spinner */
+        .loader {
+            display: none;
+            border: 6px solid #f3f3f3;
+            border-top: 6px solid #3498db;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
     </style>
+    <script>
+        function showLoader() {
+            document.getElementById("loader").style.display = "block";
+        }
+    </script>
 </head>
 <body>
     <div class="container">
         <h1>Sentiment Based Product Recommendation</h1>
         <p>Enter your username to get personalized product recommendations.</p>
-        <form action="/" method="post">
+
+        <!-- Form -->
+        <form action="/" method="post" onsubmit="showLoader()">
             <div class="form-group">
                 <label for="username">Username</label>
-                <input type="text" id="username" name="username" required>
+                <!-- Default username "joshua" -->
+                <input type="text" id="username" name="username" value="joshua" required>
             </div>
             <button type="submit">Get Recommendations</button>
         </form>
+
+        <!-- Loader -->
+        <div id="loader" class="loader"></div>
+
+        <!-- Error Message (Flask variable) -->
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
     </div>
 </body>
 </html>
