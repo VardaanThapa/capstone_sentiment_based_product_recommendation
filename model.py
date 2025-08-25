@@ -3,12 +3,12 @@ import pickle as pk
 import re, string
 import nltk
 from nltk.stem import WordNetLemmatizer
-from nltk.corpus import stopwords
 from paths import DATASETS_DIR, OUTPUTS_DIR, RESULTS_DIR
 
 nltk.download('wordnet')
 nltk.download('punkt')
-
+nltk.download('stopwords')
+from nltk.corpus import stopwords
 
 class Model:
   def __init__(self):
@@ -23,7 +23,7 @@ class Model:
     
     self.tfidf_vectorizer = pk.load(open(OUTPUTS_DIR + "/tfidf_vectorizer.pkl", "rb"))
 
-    self.model = pk.load(open(OUTPUTS_DIR + "/final_xgb_model.pkl", "rb"))
+    self.model = pk.load(open(RESULTS_DIR + "/final_xgb_model.pkl", "rb"))
     self.recommendation = pk.load(open(OUTPUTS_DIR + "/recommendation.pkl", "rb"))
 
 
