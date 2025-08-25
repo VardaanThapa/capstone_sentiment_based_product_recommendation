@@ -7,17 +7,17 @@ blueprint = Blueprint('main', __name__, template_folder='templates')
 def home():
   error = None
   top_products = []
-
+  model = Model()
   if request.method == 'POST':
     username = request.form['username']
-    error = Model.check_username(username)
+    error = model.check_username(username)
 
     if error is None:
-      recommended_products = Model.top_20_recommended_products(username)
+      recommended_products = model.top_20_recommended_products(username)
       if recommended_products is None:
         error = "No products can be recommended for {}".format(username)
       else:
-        top_products = Model.top_5_products(recommended_products)
+        top_products = model.top_5_products(recommended_products)
         print("Final 5 fine-tuned recommended products = {}".format(top_products))
   
   return render_template('index.html', 
